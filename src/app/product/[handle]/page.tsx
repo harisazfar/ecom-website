@@ -17,7 +17,7 @@ async function findProductByHandle(handle: string) {
 export async function generateMetadata({ params }: PageProps) {
   const { handle } = await params;
   const product = await findProductByHandle(handle);
-  if (!product) return { title: "Product not found | StyleHub" };
+  if (!product) return { title: "Product not found | Harry-Store" };
   return { title: `${product.name} | ${getMerchantConfig().siteName}` };
 }
 

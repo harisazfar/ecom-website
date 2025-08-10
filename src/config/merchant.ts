@@ -8,7 +8,7 @@ export interface MerchantConfig {
 }
 
 const defaultConfig: MerchantConfig = {
-  siteName: "StyleHub",
+  siteName: "Harry-Store",
   description: "Fashion essentials for everyone",
   currency: "USD",
   locale: "en-US",

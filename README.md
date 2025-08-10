@@ -137,7 +137,7 @@ Tips
 ### Demo Video
 Upload your demo to YouTube, Google Drive, or similar and paste the link here:
 
-- Watch the demo: [Demo Video Link](https://your-demo-link.example)
+- Watch the demo: [Demo Video Link](https://youtu.be/oivN6L6zek8)
 
 ### Project Structure (selected)
 - `src/app/*` pages (App Router)
