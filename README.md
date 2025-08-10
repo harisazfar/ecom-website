@@ -11,35 +11,47 @@ This section is for non-developers who just want to run the site locally.
   1) Install Node.js LTS from `https://nodejs.org`
   2) Install Git from `https://git-scm.com/downloads`
   3) Open a terminal and clone the repo:
-     ```bash
-git clone https://github.com/harisazfar/ecom-website.git
-cd ecom-website
-     ```
+
+      ```bash
+      git clone https://github.com/harisazfar/ecom-website.git
+      cd ecom-website
+      ```
+
   4) Install dependencies:
-     ```bash
-npm install
-     ```
+
+      ```bash
+      npm install
+      ```
+
   5) Start the site
-     - Development (auto-reload):
-       ```bash
-npm run dev
-       ```
-     - Production (optimized):
-       ```bash
-npm run build
-npm run start
-       ```
+      - Development (auto-reload):
+
+        ```bash
+        npm run dev
+        ```
+
+      - Production (optimized):
+
+        ```bash
+        npm run build
+        npm run start
+        ```
+
   6) Open `http://localhost:3000` in your browser
 
 - Common issues
   - Port in use: if 3000 is busy, on Windows PowerShell run:
-    ```powershell
-$env:PORT = 3001; npm run start
-    ```
+
+      ```powershell
+      $env:PORT = 3001; npm run start
+      ```
+
     On macOS/Linux:
-    ```bash
-PORT=3001 npm run start
-    ```
+
+      ```bash
+      PORT=3001 npm run start
+      ```
+
   - Private repo access: ensure your GitHub account has access, or use SSH instead of HTTPS.
 
 
