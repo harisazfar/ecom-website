@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { getPriceLabel } from "@/types/product";
+import { getMerchantConfig } from "@/config/merchant";
 import type { Product } from "@/types/product";
 
 interface ProductCardProps {
@@ -37,7 +38,7 @@ export default function ProductCard({ product }: ProductCardProps) {
           {product.description}
         </p>
         <div className="mt-2 text-sm font-semibold">
-          {getPriceLabel(product.priceCents)}
+          {getPriceLabel(product.priceCents, getMerchantConfig().locale, getMerchantConfig().currency)}
         </div>
       </div>
     </Link>

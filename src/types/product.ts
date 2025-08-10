@@ -21,7 +21,11 @@ export interface Product {
   gender: Gender;
 }
 
-export function getPriceLabel(priceCents: number, locale: string = "en-US", currency: string = "USD"): string {
+export function getPriceLabel(
+  priceCents: number,
+  locale: string = "en-US",
+  currency: string = "USD"
+): string {
   return new Intl.NumberFormat(locale, {
     style: "currency",
     currency,

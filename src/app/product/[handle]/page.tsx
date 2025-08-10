@@ -1,28 +1,29 @@
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { findProductById } from "@/data/products";
+import { loadProductById } from "@/data/catalog";
 import { getPriceLabel } from "@/types/product";
 import Actions from "./Actions";
+import { getMerchantConfig } from "@/config/merchant";
 
 interface PageProps {
   params: Promise<{ handle: string }>;
 }
 
-function findProductByHandle(handle: string) {
+async function findProductByHandle(handle: string) {
   // Prefer id match; fallback to slug match for compatibility
-  return findProductById(handle) ?? null;
+  return (await loadProductById(handle)) ?? null;
 }
 
 export async function generateMetadata({ params }: PageProps) {
   const { handle } = await params;
-  const product = findProductByHandle(handle);
-  if (!product) return { title: "Product not found | Harry-Store" };
-  return { title: `${product.name} | Harry-Store` };
+  const product = await findProductByHandle(handle);
+  if (!product) return { title: "Product not found | StyleHub" };
+  return { title: `${product.name} | ${getMerchantConfig().siteName}` };
 }
 
 export default async function ProductPage({ params }: PageProps) {
   const { handle } = await params;
-  const product = findProductByHandle(handle);
+  const product = await findProductByHandle(handle);
   if (!product) return notFound();
 
   return (
@@ -39,7 +40,7 @@ export default async function ProductPage({ params }: PageProps) {
         </div>
         <div>
           <h1 className="text-2xl font-bold tracking-tight sm:text-3xl">{product.name}</h1>
-          <div className="mt-2 text-lg font-semibold">{getPriceLabel(product.priceCents)}</div>
+          <div className="mt-2 text-lg font-semibold">{getPriceLabel(product.priceCents, getMerchantConfig().locale, getMerchantConfig().currency)}</div>
           <div className="mt-3 inline-flex items-center gap-2 rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-800 dark:bg-white/10 dark:text-gray-100">
             <span>{product.gender === "men" ? "Men" : "Women"}</span>
             <span className="text-gray-400">•</span>

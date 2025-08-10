@@ -1,8 +1,9 @@
 import Hero from "@/components/Hero";
 import ProductGrid from "@/components/ProductGrid";
-import { products } from "@/data/products";
+import { loadProducts } from "@/data/catalog";
 
-export default function Home() {
+export default async function Home() {
+  const products = await loadProducts();
   return (
     <main className="min-h-screen">
       <Hero />
